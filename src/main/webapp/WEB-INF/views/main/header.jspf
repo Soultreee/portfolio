@@ -1,0 +1,181 @@
+<%@ page language="java" pageEncoding="UTF-8"
+	contentType="text/html; charset=UTF-8"%>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Yoga Studio Template">
+<meta name="keywords" content="Yoga, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Violet  Template</title>
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#logoutBtn").on("click", function() {
+			location.href = "member/logout";
+		})
+		$("#registerBtn").on("click", function() {
+			location.href = "member/register";
+		})
+
+		$("#memberUpdateBtn").on("click", function() {
+			location.href = "member/memberUpdateView";
+		})
+
+	})
+</script>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+	<!-- Header Section Begin -->
+	<header class="header-section">
+		<div class="container-fluid">
+			<div class="inner-header">
+				<div class="logo">
+					<a href="/"><img src="resources/img/logo.png" alt=""></a>
+				</div>
+				<!--  
+				<div class="header-right">
+					<img src="resources/img/icons/search.png" alt=""
+						class="search-trigger"> <img
+						src="resources/img/icons/man.png" alt=""> <a href=""> <img
+						src="resources/img/icons/bag.png" alt=""> <span>2</span>
+					</a>
+				</div>
+				-->
+				
+				<c:if test="${member == null}">
+					<div class="user-access">
+						<a href="/member/register">Register</a> 
+						<a href="/member/login"
+							class="in">login</a>
+					</div>
+				</c:if>
+				
+				<c:if test="${member != null }">
+					<div class="user-access">
+						<a href="/member/myPage" >${member.userId} 님</a>
+						<a href="/member/logout" class="in">logout</a>
+					</div>
+				</c:if>
+
+					
+				<!--  <form name='homeForm' method="post" action="/member/login">
+					<c:if test="${member == null}">
+						  <div>
+							<label for="userId"></label> <input type="text" id="userId"
+								name="userId">
+						</div>
+						<div>
+							<label for="userPass"></label> <input type="password"
+								id="userPass" name="userPass">
+						</div>
+						
+						<div class="user-access">
+							<button type="submit">로그인</button>
+							<button id="registerBtn" type="button">회원가입</button>
+
+						</div>
+					</c:if>
+					<c:if test="${member != null }">
+						<div class="user-access">
+							<a>${member.userId} 님</a>
+							<button id="memberUpdateBtn" type="button">회원정보수정</button>
+							<button id="logoutBtn" type="button">로그아웃</button>
+						</div>
+					</c:if>
+					
+				</form>
+				-->
+
+				<nav class="main-menu mobile-menu">
+					<ul>
+						<li><a class="active" href="/">Home</a></li>
+						<li><a href="./categories.html">Shop</a>
+							<ul class="sub-menu">
+								<li><a href="product-page.html">Product Page</a></li>
+								<li><a href="shopping-cart.html">Shopping Card</a></li>
+								<li><a href="check-out.html">Check out</a></li>
+							</ul></li>
+						<li><a href="./product-page.html">About</a></li>
+						<li><a href="./check-out.html">Blog</a></li>
+						<li><a href="/board/writeView">게시판</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- Header Info Begin -->
+	<div class="header-info">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="header-item">
+						<img src="resources/img/icons/delivery.png" alt="">
+						<p>Free shipping on orders over $30 in USA</p>
+					</div>
+				</div>
+				<div class="col-md-4 text-left text-lg-center">
+					<div class="header-item">
+						<img src="resources/img/icons/voucher.png" alt="">
+						<p>20% Student Discount</p>
+					</div>
+				</div>
+				<div class="col-md-4 text-left text-xl-right">
+					<div class="header-item">
+						<img src="resources/img/icons/sales.png" alt="">
+						<p>30% off on dresses. Use code: 30OFF</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Header Info End -->
+	<!-- Header End -->
+</body>
+</html>
